@@ -17,20 +17,19 @@ const createRoutes = (app) => {
   app.use(express.static(__dirname + "/../static"));
   app.use(fileUpload({}));
 
-  if (process.env.NODE_ENV === "production") {
-    app.use("/", express.static(path.join(__dirname, "../client", "dist")));
-    app.get("*", (req, res) => {
-      res.sendFile(path.resolve(__dirname, "../client", "dist", "index.html"));
-    });
-  }
-
   app.get("/api/user/me", checkAuth, UserController.me);
   app.post("/api/user/register", registerValidation, UserController.register);
   app.post("/api/user/login", loginValidation, UserController.login);
   app.put("/api/photo", checkAuth, UserController.changePhoto);
   app.put("/api/user", checkAuth, UserController.change);
-
   app.post("/api/users", checkAuth, UserController.users);
+
+  if (process.env.NODE_ENV === "production") {
+    app.use("/", express.static(path.join(__dirname, "../client", "dist")));
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+    });
+  }
 };
 
 module.exports = createRoutes;

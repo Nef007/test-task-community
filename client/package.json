@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack-dev-server  --mode=development",
     "client:build": "webpack --mode=production"
-
   },
   "author": "nef007",
   "license": "ISC",
@@ -14,9 +13,11 @@
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@pmmmwh/react-refresh-webpack-plugin": "pmmmwh/react-refresh-webpack-plugin",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "lodash-webpack-plugin": "^0.11.6",
     "mini-css-extract-plugin": "^2.6.1",
     "style-loader": "^3.3.1",
@@ -29,7 +30,6 @@
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.21.4",
     "antd-img-crop": "^4.2.3",
-    "html-webpack-plugin": "^5.5.0",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
     "moment": "^2.29.4",
